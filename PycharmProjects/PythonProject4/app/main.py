@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, redirect
+from flask import Flask, render_template, flash, redirect, url_for
 import os
 from app.forms import LoginForm
 
@@ -19,7 +19,7 @@ def login():
         print(form3.remember_me.data)
 
         flash('YES')
-        return redirect('/')
+        return redirect(url_for('login'))
     return render_template('login.html', form2=form3)
 
 
